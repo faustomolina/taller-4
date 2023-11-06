@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqasewexcr6xn"]
+
+[ext_resource type="Script" path="res://key_object.gd" id="1_0dve1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r43rv"]
+radius = 199.679
+
+[node name="KeyObject" type="Area2D"]
+script = ExtResource("1_0dve1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.195313, 0.195312)
+shape = SubResource("CircleShape2D_r43rv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.195313, 0.195312)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

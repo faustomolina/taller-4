@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://6w56haqeeg3g"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_v6vlg"]
+[ext_resource type="Texture2D" uid="uid://bw5dtuws35002" path="res://img/fondo.png" id="2_et3ui"]
+[ext_resource type="PackedScene" uid="uid://k23sf7umdjog" path="res://circle_object.tscn" id="3_jhaqf"]
+[ext_resource type="Texture2D" uid="uid://udhjrj1qf1tx" path="res://img/linea.png" id="4_d2ioo"]
+[ext_resource type="Texture2D" uid="uid://opgvdfg0l48g" path="res://img/luces/luces1.png" id="5_kqiiu"]
+[ext_resource type="Texture2D" uid="uid://c5m8jlfpeskfs" path="res://img/luces/luces2.png" id="6_vegln"]
+[ext_resource type="Texture2D" uid="uid://cupv2kswveb2h" path="res://img/luces/luces3.png" id="7_sit7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lymp5"]
+size = Vector2(774, 20)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_v6vlg")
+
+[node name="PixelartTaller" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_et3ui")
+
+[node name="Objects" type="Node2D" parent="."]
+position = Vector2(-24, 248)
+
+[node name="CircleObject" parent="Objects" instance=ExtResource("3_jhaqf")]
+position = Vector2(245, 665)
+
+[node name="CircleObject2" parent="Objects" instance=ExtResource("3_jhaqf")]
+position = Vector2(410, 665)
+
+[node name="CircleObject3" parent="Objects" instance=ExtResource("3_jhaqf")]
+position = Vector2(575, 665)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(400, 279)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Linea" type="Sprite2D" parent="."]
+position = Vector2(386, 915)
+scale = Vector2(1.76833, 1)
+texture = ExtResource("4_d2ioo")
+
+[node name="BottomArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea"]
+position = Vector2(395, 1037)
+shape = SubResource("RectangleShape2D_lymp5")
+
+[node name="Luces1" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_kqiiu")
+
+[node name="Luces2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("6_vegln")
+
+[node name="Luces3" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("7_sit7f")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="BottomArea" to="." method="_on_bottom_area_area_entered"]
