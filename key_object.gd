@@ -2,7 +2,7 @@ extends Area2D
 
 
 
-const GRAVITY = 200
+const GRAVITY = 100
 
 var inside_area = false
 var selected_key = 0

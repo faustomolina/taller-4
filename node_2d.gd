@@ -6,12 +6,25 @@ var positions: Array = []
 var collisionCount = 0
 var KeyInstance
 var pos
+var tiempo = 0
 
 func _ready():
 	positions.append($Objects/CircleObject.global_position.x)
 	positions.append($Objects/CircleObject2.global_position.x)
 	positions.append($Objects/CircleObject3.global_position.x)
 
+func _process(delta):
+	tiempo+=1
+	if tiempo >= 1500:
+		KeyInstance.speed = 300
+		$Timer.wait_time = 1
+	if tiempo >= 3000:
+		KeyInstance.speed = 400
+		$Timer.wait_time = 0.5
+	if tiempo >= 3500:
+		KeyInstance.speed = 500
+		$Timer.wait_time = 0.25
+	print(tiempo)
 
 func _spawn():
 	KeyInstance = mob_scene.instantiate()
