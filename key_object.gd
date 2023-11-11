@@ -15,7 +15,7 @@ func _process(delta):
 	
 func apretar():
 	if inside_area:
-		if Input.is_key_pressed(selected_key):
+		if Input.is_action_just_pressed(selected_key):
 			print("debug => ¡qué bien! ")
 			queue_free()
 
@@ -23,13 +23,13 @@ func spawn(key: int, pos: Vector2) -> void:
 	position = pos
 	match key:
 		0:
-			selected_key = KEY_K
+			selected_key = "electron"
 			texture_name = "electron.png"
 		1:
-			selected_key = KEY_R
+			selected_key = "neutron"
 			texture_name = "neutron.png"
 		2:
-			selected_key = KEY_T
+			selected_key = "proton"
 			texture_name = "proton.png"
 	
 	set_texture(texture_name)  # Llama a una función para cambiar la textura

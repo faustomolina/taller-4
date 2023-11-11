@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://node_2d.gd" id="1_v6vlg"]
 [ext_resource type="Texture2D" uid="uid://bw5dtuws35002" path="res://img/fondo.png" id="2_et3ui"]
 [ext_resource type="PackedScene" uid="uid://k23sf7umdjog" path="res://circle_object.tscn" id="3_jhaqf"]
-[ext_resource type="Texture2D" uid="uid://udhjrj1qf1tx" path="res://img/linea.png" id="4_d2ioo"]
 [ext_resource type="Texture2D" uid="uid://opgvdfg0l48g" path="res://img/luces/luces1.png" id="5_kqiiu"]
 [ext_resource type="Texture2D" uid="uid://c5m8jlfpeskfs" path="res://img/luces/luces2.png" id="6_vegln"]
 [ext_resource type="Texture2D" uid="uid://cupv2kswveb2h" path="res://img/luces/luces3.png" id="7_sit7f"]
+[ext_resource type="Texture2D" uid="uid://ceotdvy56xkl2" path="res://img/circulo.png" id="7_xokew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lymp5"]
 size = Vector2(774, 20)
@@ -37,11 +37,6 @@ position = Vector2(400, 279)
 wait_time = 2.0
 autostart = true
 
-[node name="Linea" type="Sprite2D" parent="."]
-position = Vector2(386, 915)
-scale = Vector2(1.76833, 1)
-texture = ExtResource("4_d2ioo")
-
 [node name="BottomArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea"]
@@ -59,6 +54,21 @@ texture = ExtResource("6_vegln")
 [node name="Luces3" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("7_sit7f")
+
+[node name="Circulo" type="Sprite2D" parent="."]
+position = Vector2(221, 913)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("7_xokew")
+
+[node name="Circulo2" type="Sprite2D" parent="."]
+position = Vector2(386, 913)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("7_xokew")
+
+[node name="Circulo3" type="Sprite2D" parent="."]
+position = Vector2(551, 913)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("7_xokew")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="BottomArea" to="." method="_on_bottom_area_area_entered"]
