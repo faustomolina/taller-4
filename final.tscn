@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dab8h7ukgfvl1"]
+
+[ext_resource type="Script" path="res://final.gd" id="1_1blvh"]
+[ext_resource type="Texture2D" uid="uid://m4udttmvmqbv" path="res://img/Imagen final.png" id="1_y1jc7"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_1blvh")
+
+[node name="ImagenFinal" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_y1jc7")

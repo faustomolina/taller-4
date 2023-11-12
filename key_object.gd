@@ -34,10 +34,10 @@ func spawn(key: int, pos: Vector2) -> void:
 	
 	set_texture(texture_name)  # Llama a una función para cambiar la textura
 
-func set_texture(texture_name: String) -> void:
+func set_texture(texture) -> void:
 	# Asigna la nueva textura al Sprite2D
 	var sprite = $Sprite2D
-	sprite.set_texture(load("res://img/" + texture_name))
+	sprite.set_texture(load("res://img/" + texture))
 
 
 func _on_area_entered(_area):
